@@ -1,8 +1,8 @@
 spring:
   data:
     mongodb:
-      uri: mongodb://localhost:27017/mprDB?authSource=mprDB --username mongo
-      database: testdb
-      username: mongo
+      uri: mongodb://root:rhleh2160@localhost/mprDB?authSource=admin
+      database: mprDB
+      username: root
       password: rhleh2160
 
