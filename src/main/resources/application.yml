@@ -1,0 +1,8 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb://root:rhleh2160@localhost/mprDB?authSource=admin
+      database: mprDB
+      username: root
+      password: rhleh2160
+
