@@ -7,7 +7,6 @@ import org.springframework.data.annotation.Id;
 
 @Getter
 public class RestaurantDto {
-    @Id
     private final String id;
     private final String name;
     private final String cate1;
@@ -18,10 +17,10 @@ public class RestaurantDto {
     private final Double distance;
     private final String dong;
     private final Double lon;
-    private final Double lot;
+    private final Double lat;
 
     @Builder
-    public RestaurantDto(String id, String name, String cate1, String cate2, String cate3, String cate4, String station, Double distance, String dong, Double lon, Double lot) {
+    public RestaurantDto(String id, String name, String cate1, String cate2, String cate3, String cate4, String station, Double distance, String dong, Double lon, Double lat) {
         this.id = id;
         this.name = name;
         this.cate1 = cate1;
@@ -32,21 +31,22 @@ public class RestaurantDto {
         this.distance = distance;
         this.dong = dong;
         this.lon = lon;
-        this.lot = lot;
+        this.lat = lat;
     }
 
     public static RestaurantDto from(StationToRestaurant stationToRestaurant){
         return RestaurantDto.builder()
                 .id(stationToRestaurant.getId())
                 .name(stationToRestaurant.getName())
-                .cate1(stationToRestaurant.getCate1())
-                .cate2(stationToRestaurant.getCate2())
-                .cate3(stationToRestaurant.getCate3())
-                .cate4(stationToRestaurant.getCate4())
+                .cate1(stationToRestaurant.getCate_1())
+                .cate2(stationToRestaurant.getCate_2())
+                .cate3(stationToRestaurant.getCate_3())
+                .cate4(stationToRestaurant.getCate_4())
                 .station(stationToRestaurant.getStation())
                 .distance(stationToRestaurant.getDistance())
+                .dong(stationToRestaurant.getDong())
                 .lon(stationToRestaurant.getLon())
-                .lot(stationToRestaurant.getLot())
+                .lat(stationToRestaurant.getLat())
                 .build();
     }
 }

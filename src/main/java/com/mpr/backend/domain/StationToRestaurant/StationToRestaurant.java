@@ -13,15 +13,15 @@ public class StationToRestaurant {
     private String Column1;
     private String name;
 
-    private String cate1;
-    private String cate2;
-    private String cate3;
-    private String cate4;
+    private String cate_1;
+    private String cate_2;
+    private String cate_3;
+    private String cate_4;
 
     private String station;
     private Double distance;
     private String dong;
 
     private Double lon;
-    private Double lot;
+    private Double lat;
 }
