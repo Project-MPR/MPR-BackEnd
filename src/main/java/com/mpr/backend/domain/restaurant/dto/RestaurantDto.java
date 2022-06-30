@@ -1,9 +1,8 @@
-package com.mpr.backend.domain.StationToRestaurant.dto;
+package com.mpr.backend.domain.restaurant.dto;
 
-import com.mpr.backend.domain.StationToRestaurant.StationToRestaurant;
+import com.mpr.backend.domain.restaurant.Restaurant;
 import lombok.Builder;
 import lombok.Getter;
-import org.springframework.data.annotation.Id;
 
 @Getter
 public class RestaurantDto {
@@ -34,19 +33,19 @@ public class RestaurantDto {
         this.lat = lat;
     }
 
-    public static RestaurantDto from(StationToRestaurant stationToRestaurant){
+    public static RestaurantDto from(Restaurant restaurant){
         return RestaurantDto.builder()
-                .id(stationToRestaurant.getId())
-                .name(stationToRestaurant.getName())
-                .cate1(stationToRestaurant.getCate_1())
-                .cate2(stationToRestaurant.getCate_2())
-                .cate3(stationToRestaurant.getCate_3())
-                .cate4(stationToRestaurant.getCate_4())
-                .station(stationToRestaurant.getStation())
-                .distance(stationToRestaurant.getDistance())
-                .dong(stationToRestaurant.getDong())
-                .lon(stationToRestaurant.getLon())
-                .lat(stationToRestaurant.getLat())
+                .id(restaurant.getId())
+                .name(restaurant.getName())
+                .cate1(restaurant.getCate_1())
+                .cate2(restaurant.getCate_2())
+                .cate3(restaurant.getCate_3())
+                .cate4(restaurant.getCate_4())
+                .station(restaurant.getStation())
+                .distance(restaurant.getDistance())
+                .dong(restaurant.getDong())
+                .lon(restaurant.getLon())
+                .lat(restaurant.getLat())
                 .build();
     }
 }

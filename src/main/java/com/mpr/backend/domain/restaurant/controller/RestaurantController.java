@@ -1,9 +1,9 @@
-package com.mpr.backend.domain.StationToRestaurant.controller;
+package com.mpr.backend.domain.restaurant.controller;
 
 
-import com.mpr.backend.domain.StationToRestaurant.StationToRestaurant;
-import com.mpr.backend.domain.StationToRestaurant.dto.RestaurantDto;
-import com.mpr.backend.domain.StationToRestaurant.service.StationToRestaurantService;
+import com.mpr.backend.domain.restaurant.Restaurant;
+import com.mpr.backend.domain.restaurant.dto.RestaurantDto;
+import com.mpr.backend.domain.restaurant.service.RestaurantService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,14 +15,14 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequiredArgsConstructor
-public class StationToRestaurantController {
-    private final StationToRestaurantService stationToRestaurantService;
+public class RestaurantController {
+    private final RestaurantService restaurantService;
 
     @GetMapping("/api/restaurant/{station}")
     @CrossOrigin
     public List<RestaurantDto> test(@PathVariable("station") String station) {
-        List<StationToRestaurant> stationToRestaurantList = stationToRestaurantService.findRestaurantByStation(station);
-        return stationToRestaurantList.stream()
+        List<Restaurant> restaurantList = restaurantService.findRestaurantByStation(station);
+        return restaurantList.stream()
                 .map(RestaurantDto::from)
                 .collect(Collectors.toList());
     }
