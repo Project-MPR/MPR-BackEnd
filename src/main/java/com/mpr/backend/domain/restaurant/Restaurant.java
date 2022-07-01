@@ -1,4 +1,4 @@
-package com.mpr.backend.domain.StationToRestaurant;
+package com.mpr.backend.domain.restaurant;
 
 
 import lombok.Getter;
@@ -7,7 +7,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 @Getter
 @Document(collection = "station_to_restaurant")
-public class StationToRestaurant {
+public class Restaurant {
     @Id
     private String id;
     private String Column1;
