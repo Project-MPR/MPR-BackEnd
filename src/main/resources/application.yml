@@ -5,4 +5,6 @@ spring:
       database: mprDB
       username: root
       password: rhleh2160
-
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
