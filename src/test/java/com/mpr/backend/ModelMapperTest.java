@@ -31,20 +31,16 @@ public class ModelMapperTest {
     void modelMapper1() throws Exception {
         String station = "광운대역";
 
-        List<Restaurant> restaurantList = restaurantService.findRestaurantByStation(station);
+        List<RestaurantDto> dtoList = restaurantService.findRestaurantByStation(station);
 
-        List<RestaurantDto> resultList = restaurantList.stream()
-                .map(restaurant -> mm.map(restaurant, RestaurantDto.class))
-                .collect(Collectors.toList());
-
-        assertThat(resultList.size()).isGreaterThan(0);
-        assertThat(resultList.get(0).getName()).isNotEqualTo(null);
-        assertThat(resultList.get(0).getStation()).isNotEqualTo(null);
-        assertThat(resultList.get(0).getLon()).isNotEqualTo(null);
-        assertThat(resultList.get(0).getLat()).isNotEqualTo(null);
-        assertThat(resultList.get(0).getCate_1()).isNotEqualTo(null);
-        assertThat(resultList.get(0).getCate_2()).isNotEqualTo(null);
-        assertThat(resultList.get(0).getCate_3()).isNotEqualTo(null);
-        assertThat(resultList.get(0).getCate_4()).isNotEqualTo(null);
+        assertThat(dtoList.size()).isGreaterThan(0);
+        assertThat(dtoList.get(0).getName()).isNotEqualTo(null);
+        assertThat(dtoList.get(0).getStation()).isNotEqualTo(null);
+        assertThat(dtoList.get(0).getLon()).isNotEqualTo(null);
+        assertThat(dtoList.get(0).getLat()).isNotEqualTo(null);
+        assertThat(dtoList.get(0).getCate_1()).isNotEqualTo(null);
+        assertThat(dtoList.get(0).getCate_2()).isNotEqualTo(null);
+        assertThat(dtoList.get(0).getCate_3()).isNotEqualTo(null);
+        assertThat(dtoList.get(0).getCate_4()).isNotEqualTo(null);
     }
 }

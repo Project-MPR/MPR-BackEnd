@@ -38,13 +38,3 @@ dependencies {
     //model mapper
     implementation 'org.modelmapper:modelmapper:3.0.0'
 }
-
-tasks.named('test') {
-    outputs.dir snippetsDir
-    useJUnitPlatform()
-}
-
-tasks.named('asciidoctor') {
-    inputs.dir snippetsDir
-    dependsOn test
-}
