@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import java.awt.print.Pageable;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -30,6 +31,5 @@ public class StationService {
         return stations.stream()
                 .map(StationDto::from)
                 .collect(Collectors.toList());
-
     }
 }
