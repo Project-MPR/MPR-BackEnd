@@ -15,4 +15,8 @@ public class RestaurantService {
     public List<Restaurant> findRestaurantByStation(String station) {
         return restaurantRepository.findByStation(station);
     }
+
+    public List<String> filterUniqueCate(String station){
+        return restaurantRepository.filterUniqueCate(station);
+    }
 }

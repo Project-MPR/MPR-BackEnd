@@ -7,6 +7,6 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 import java.util.List;
 
 @EnableMongoRepositories
-public interface RestaurantRepository extends MongoRepository<Restaurant, Long> {
+public interface RestaurantRepository extends MongoRepository<Restaurant, Long>, RestaurantRepositoryCustom {
     List<Restaurant> findByStation(String station);
 }

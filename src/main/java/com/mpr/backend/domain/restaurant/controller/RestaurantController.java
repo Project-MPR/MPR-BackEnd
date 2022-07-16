@@ -28,4 +28,11 @@ public class RestaurantController {
                 .map(restaurant -> modelMapper.map(restaurant, RestaurantDto.class))
                 .collect(Collectors.toList());
     }
+
+    @GetMapping("/api/restaurant/cate/{station}")
+    public List<String> filterUniqueCate(@PathVariable("station") String station){
+        return restaurantService.filterUniqueCate(station);
+    }
+
+
 }
