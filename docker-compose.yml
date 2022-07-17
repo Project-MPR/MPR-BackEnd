@@ -11,5 +11,5 @@ services:
       - MONGO_INITDB_ROOT_PASSWORD=rhleh2160
       - MONGO_INITDB_DATABASE=mprDB
     volumes:
-      - /Users/jhj/Desktop/Data:/tmp
+      - /Users/sumin/Desktop/sumin/SideProject/MPR_backup/data:/tmp
 

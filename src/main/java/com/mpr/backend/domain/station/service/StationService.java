@@ -8,7 +8,8 @@ import com.mpr.backend.global.error.message.ErrorMessage;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
-
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -17,8 +18,10 @@ import java.util.stream.Collectors;
 public class StationService {
     private final StationRepository stationRepository;
     private final ModelMapper modelMapper;
-    public StationDto findStationByStationName(String stationName){
-        Station station  = stationRepository.findStationBySubwayLocation(stationName)
+
+    
+    public StationDto findStationByStationName(String stationName) {
+        Station station = stationRepository.findStationBySubwayLocation(stationName)
                 .orElseThrow(() -> new NoStationException(ErrorMessage.NO_STATION_ERROR.toString()));
         return modelMapper.map(station, StationDto.class);
     }
@@ -30,4 +33,11 @@ public class StationService {
                 .collect(Collectors.toList());
     }
 
+    public List<StationDto> findAll() {
+        List<Station> stations = stationRepository.findAll();
+
+        return stations.stream()
+                .map(StationDto::from)
+                .collect(Collectors.toList());
+    }
 }
