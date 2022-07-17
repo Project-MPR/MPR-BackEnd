@@ -1,6 +1,7 @@
 package com.mpr.backend.domain.restaurant.service;
 
 import com.mpr.backend.domain.restaurant.Restaurant;
+import com.mpr.backend.domain.restaurant.dto.CateListDTO;
 import com.mpr.backend.domain.restaurant.dto.CategorySearch;
 import com.mpr.backend.domain.restaurant.dto.RestaurantDto;
 import com.mpr.backend.domain.restaurant.repository.RestaurantRepository;
@@ -30,4 +31,9 @@ public class RestaurantService {
                 .map(restaurant -> modelMapper.map(restaurant, RestaurantDto.class))
                 .collect(Collectors.toList());
     }
+
+    public CateListDTO findCateListDistinct(String station) {
+        return restaurantRepository.findCateListDistinct(station);
+    }
+
 }

@@ -2,6 +2,7 @@ package com.mpr.backend.domain.restaurant.controller;
 
 
 import com.mpr.backend.domain.restaurant.Restaurant;
+import com.mpr.backend.domain.restaurant.dto.CateListDTO;
 import com.mpr.backend.domain.restaurant.dto.CategorySearch;
 import com.mpr.backend.domain.restaurant.dto.RestaurantDto;
 import com.mpr.backend.domain.restaurant.service.RestaurantService;
@@ -31,4 +32,8 @@ public class RestaurantController {
         return restaurantService.findRestaurantByStationByCategory(categorySearch);
     }
 
+    @GetMapping("/api/restaurant/cate/{station}")
+    public CateListDTO findCateListDistinct(@PathVariable("station") String station){
+        return restaurantService.findCateListDistinct(station);
+    }
 }
