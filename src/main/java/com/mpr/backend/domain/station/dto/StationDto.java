@@ -1,15 +1,15 @@
 package com.mpr.backend.domain.station.dto;
 
 import com.mpr.backend.domain.station.Station;
-import lombok.Builder;
-import lombok.Getter;
+import lombok.*;
 
 
-@Getter
+@Data
+@NoArgsConstructor
 public class StationDto{
-    private final String name;
-    private final Double  lon;
-    private final Double lat;
+    private String name;
+    private Double  lon;
+    private Double lat;
 
     @Builder
     public StationDto(String name, Double lon, Double lat) {

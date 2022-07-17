@@ -6,9 +6,8 @@ import com.mpr.backend.domain.station.repository.StationRepository;
 import com.mpr.backend.global.error.NoStationException;
 import com.mpr.backend.global.error.message.ErrorMessage;
 import lombok.RequiredArgsConstructor;
+import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
-
-import java.awt.print.Pageable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -18,11 +17,20 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class StationService {
     private final StationRepository stationRepository;
+    private final ModelMapper modelMapper;
 
+    
     public StationDto findStationByStationName(String stationName) {
         Station station = stationRepository.findStationBySubwayLocation(stationName)
                 .orElseThrow(() -> new NoStationException(ErrorMessage.NO_STATION_ERROR.toString()));
-        return StationDto.from(station);
+        return modelMapper.map(station, StationDto.class);
+    }
+
+    public List<StationDto> findStationByRegex(String regex){
+        return stationRepository.findStationListByRegex(regex)
+                .stream()
+                .map(station -> modelMapper.map(station, StationDto.class))
+                .collect(Collectors.toList());
     }
 
     public List<StationDto> findAll() {

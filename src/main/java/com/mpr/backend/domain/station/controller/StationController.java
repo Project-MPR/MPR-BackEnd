@@ -23,6 +23,7 @@ public class StationController {
         return ResponseEntity.ok(dto);
     }
 
+
     @CrossOrigin
     @GetMapping("/api/stations")
     public List<StationDto> findStations(){

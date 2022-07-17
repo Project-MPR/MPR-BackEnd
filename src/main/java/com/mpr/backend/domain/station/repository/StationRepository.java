@@ -8,6 +8,8 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 import java.util.Optional;
 
 @EnableMongoRepositories
-public interface StationRepository extends MongoRepository<Station, String> {
+public interface StationRepository
+        extends MongoRepository<Station, String>,
+        StationRepositoryCustom {
     Optional<Station> findStationBySubwayLocation(String station);
 }

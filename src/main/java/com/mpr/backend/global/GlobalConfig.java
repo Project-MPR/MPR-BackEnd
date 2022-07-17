@@ -1,5 +1,7 @@
 package com.mpr.backend.global;
 
+import com.mpr.backend.domain.station.Station;
+import com.mpr.backend.domain.station.dto.StationDto;
 import org.modelmapper.ModelMapper;
 import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.context.annotation.Bean;
@@ -12,6 +14,12 @@ public class GlobalConfig {
     @Bean
     public ModelMapper modelMapper(){
         mm.getConfiguration().setMatchingStrategy(MatchingStrategies.LOOSE);
+
+        mm.typeMap(Station.class, StationDto.class)
+                .addMappings(mapper->{
+            mapper.map(Station::getSubwayLocation, StationDto::setName);
+        });
+
         return mm;
     }
 }
