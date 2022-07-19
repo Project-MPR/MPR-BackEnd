@@ -1,14 +1,10 @@
 spring:
   data:
     mongodb:
-      uri: mongodb://root:rhleh2160@mpr-documentdb.cxsescezqkce.ap-northeast-1.docdb.amazonaws.com:27017/mprDB
-      port: 27017
-      database: mprDB
-      username: root
-      password: rhleh2160
-      host: localhost
-      authentication-database: admin
+      uri: mongodb://root:rhleh2160@mpr-documentdb.cxsescezqkce.ap-northeast-1.docdb.amazonaws.com:27017/mprDB?ssl=true&ssl_ca_certs=rds-combined-ca-bundle.pem&retryWrites=false
 
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher
+
+# java  -DsslCertificate=./ssl/rds-combined-ca-bundle.pem -jar target/aws-documentdb-*.jar
