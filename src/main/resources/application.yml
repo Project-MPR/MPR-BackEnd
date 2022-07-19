@@ -1,7 +1,7 @@
 spring:
   data:
     mongodb:
-      uri: mongodb://root:rhleh2160@localhost/mprDB?authSource=admin
+      uri: mongodb://root:rhleh2160@mpr-documentdb.cxsescezqkce.ap-northeast-1.docdb.amazonaws.com:27017
       database: mprDB
       username: root
       password: rhleh2160
