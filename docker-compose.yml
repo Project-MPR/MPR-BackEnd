@@ -1,16 +1,28 @@
 version: '3.8'
 
 services:
-  mongo:
-    image: arm64v8/mongo
-    container_name: mongodb-container
-    restart: always
+  mpr-web:
+    build: .
     ports:
-      - "27017:27017"
-    environment:
-      - MONGO_INITDB_ROOT_USERNAME=root
-      - MONGO_INITDB_ROOT_PASSWORD=rhleh2160
-      - MONGO_INITDB_DATABASE=mprDB
-    volumes:
-      - /Users/jhj/Desktop/Data:/tmp
+      - "8080:8080"
+    networks:
+      - mpr-net
+
+networks:
+  mpr-net:
+    driver: bridge
+
+
+#  mongo:
+#    image: arm64v8/mongo
+#    container_name: mongodb-container
+#    restart: always
+#    ports:
+#      - "27017:27017"
+#    environment:
+#      - MONGO_INITDB_ROOT_USERNAME=root
+#      - MONGO_INITDB_ROOT_PASSWORD=rhleh2160
+#      - MONGO_INITDB_DATABASE=mprDB
+#    volumes:
+#      - /Users/jhj/Desktop/Data:/tmp
 

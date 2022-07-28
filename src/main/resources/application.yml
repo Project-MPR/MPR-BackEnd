@@ -1,8 +1,13 @@
 spring:
   data:
     mongodb:
-      uri: mongodb://root:rhleh2160@mpr-documentdb.cxsescezqkce.ap-northeast-1.docdb.amazonaws.com:27017/mprDB?ssl=true
-
+      uri: mongodb://root:rhleh2160@mpr-documentdb.cxsescezqkce.ap-northeast-1.docdb.amazonaws.com:27017/?ssl=true
+      trustStore: /tmp/certs/rds-truststore.jks
+      database: mprDB
+      username: root
+      password: rhleh2160
+      port: 27017
+      host: localhost
   mvc:
     pathmatch:
       matching-strategy: ant_path_matcher
